@@ -118,8 +118,11 @@ export default class World extends kokomi.Component {
       cameraShake.setIntensity(0);
 
       this.base.interactionManager.add(car.model.scene);
-      car.model.scene.addEventListener("click", () => {
+      car.model.scene.addEventListener("pointerdown", () => {
         this.rush();
+      });
+      car.model.scene.addEventListener("pointerup", () => {
+        this.rushDone();
       });
 
       this.on("enter", () => {
